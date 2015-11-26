@@ -1,11 +1,11 @@
 {
   "name": "pipaslot/forms",
   "version": "1.0.0",
-  "description": "Nette form extension",
+  "description": "Nette form extension with Bootstrap rendering",
   "keywords": [
     "nette",
-    "simple",
     "pipas",
+    "bootstrap",
     "tools",
     "forms"
   ],
@@ -13,7 +13,7 @@
   "authors": [
     {
       "name": "Petr Štipek",
-      "email": "p.stipek@email.cz",
+      "email": "pipaslot@seznam.cz",
       "role": "Developer"
     }
   ],
