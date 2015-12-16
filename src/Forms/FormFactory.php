@@ -3,16 +3,16 @@
 
 namespace Pipas\Forms;
 
-use Pipas\Forms\Rendering\Bootstrap3Renderer;
-use Pipas\Forms\Rendering\Bootstrap3StackRenderer;
 use Nette\Application\UI\Form;
 use Nette\Localization\ITranslator;
 use Pipas\Forms\Rendering\Bootstrap3InlineRenderer;
+use Pipas\Forms\Rendering\Bootstrap3Renderer;
+use Pipas\Forms\Rendering\Bootstrap3StackRenderer;
 
 /**
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class FormFactory
+class FormFactory implements IFormFactory
 {
 	/** @var ITranslator */
 	private $translator;

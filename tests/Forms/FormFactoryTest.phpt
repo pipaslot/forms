@@ -2,7 +2,7 @@
 
 use Nette\Application\UI\Form;
 use Nette\Forms\Controls\CsrfProtection;
-use Nette\Neon\Exception;
+use Nette\Localization\ITranslator;
 use Pipas\Forms\FormFactory;
 use Pipas\Forms\Rendering\Bootstrap3InlineRenderer;
 use Pipas\Forms\Rendering\Bootstrap3Renderer;
@@ -10,6 +10,15 @@ use Pipas\Forms\Rendering\Bootstrap3StackRenderer;
 use Tester\Assert;
 
 $container = require __DIR__ . '/../bootstrap.php';
+
+
+class TestingTranslator implements ITranslator
+{
+	public function translate($message, $count = NULL)
+	{
+
+	}
+}
 
 
 $factory = new FormFactory();
@@ -78,4 +87,12 @@ test(function () use ($factory, $testInsecured) {
 	$form = $factory->createBootstrapStacked(false);
 	$testInsecured($form);
 	Assert::true($form->getRenderer() instanceof Bootstrap3StackRenderer);
+});
+
+//Translator setter
+test(function () use ($factory) {
+	$translator = new TestingTranslator();
+	$factory->setTranslator($translator);
+	$form = $factory->create(false);
+	Assert::same($translator, $form->getTranslator());
 });

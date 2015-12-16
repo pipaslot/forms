@@ -20,9 +20,29 @@ interface IFormFactory
 
 	/**
 	 * Create standard Nette form
-	 *
 	 * @param bool|true $secured Enable Cross-Site Request Forgery Protection
 	 * @return Form
 	 */
 	public function create($secured = true);
+
+	/**
+	 * Create Form with Bootstrap styling
+	 * @param bool|true $secured
+	 * @return Form
+	 */
+	public function createBootstrap($secured = true);
+
+	/**
+	 * Create Form with inline Bootstrap styling
+	 * @param bool|true $secured
+	 * @return Form
+	 */
+	public function createBootstrapInline($secured = true);
+
+	/**
+	 * One column form where labels are placed to controls
+	 * @param bool|true $secured
+	 * @return Form
+	 */
+	public function createBootstrapStacked($secured = true);
 }
