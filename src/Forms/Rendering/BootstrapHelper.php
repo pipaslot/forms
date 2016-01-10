@@ -3,8 +3,8 @@
 
 namespace Pipas\Forms\Rendering;
 
-use Nette\Application\UI\Form;
 use Nette\Forms\Controls;
+use Nette\Forms\Form;
 
 /**
  * @author Petr Štipek <p.stipek@email.cz>

@@ -13,7 +13,7 @@ use Nette\Forms\Rendering\DefaultFormRenderer;
  * One column form where labels are placed to controls
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class Bootstrap3StackRenderer extends DefaultFormRenderer
+class Bootstrap3StackRenderer extends DefaultFormRenderer implements IManualRenderer
 {
 	/**
 	 * Bootstrap3StackedRenderer constructor.
@@ -32,13 +32,11 @@ class Bootstrap3StackRenderer extends DefaultFormRenderer
 	}
 
 	/**
-	 * Provides complete form rendering.
+	 * Make form and controls compatible with Twitter Bootstrap
 	 * @param Form $form
-	 * @return string
 	 */
-	function render(Form $form)
+	private function beforeRender(Form $form)
 	{
-		// make form and controls compatible with Twitter Bootstrap
 		$form->getElementPrototype()->class[] = 'form-horizontal';
 		foreach ($form->controls as $control) {
 			/** @var BaseControl $control */
@@ -55,6 +53,26 @@ class Bootstrap3StackRenderer extends DefaultFormRenderer
 			}
 		}
 		BootstrapHelper::ApplyBootstrapToControls($form);
+	}
+
+	/**
+	 * Provides complete form rendering.
+	 * @param Form $form
+	 * @return string
+	 */
+	function render(Form $form)
+	{
+		$this->beforeRender($form);
 		return parent::render($form);
+	}
+
+	/**
+	 * Prepares additional styling to form controls before manual rendering. DO not forget register macros.
+	 * @param Form $form
+	 * @return string
+	 */
+	function renderFormBegin(Form $form)
+	{
+		$this->beforeRender($form);
 	}
 }
