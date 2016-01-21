@@ -2,6 +2,7 @@
 
 namespace Pipas\Forms\Latte;
 
+use Latte\CompileException;
 use Latte\MacroNode;
 use Latte\PhpWriter;
 use Nette\Bridges\FormsLatte;
@@ -13,10 +14,24 @@ use Pipas\Forms\Rendering\IManualRenderer;
  */
 class FormMacros extends FormsLatte\FormMacros
 {
-
 	public function macroForm(MacroNode $node, PhpWriter $writer)
 	{
-		return $this->getBeforeRenderCalling($writer) . parent::macroForm($node, $writer);
+		if ($node->modifiers) {
+			trigger_error('Modifiers are not allowed here.', E_USER_WARNING);
+		}
+		if ($node->prefix) {
+			throw new CompileException('Did you mean <form n:name=...> ?');
+		}
+		$name = $node->tokenizer->fetchWord();
+		if ($name === FALSE) {
+			throw new CompileException("Missing form name in {{$node->name}}.");
+		}
+		$node->tokenizer->reset();
+		return $writer->write(
+			'echo Pipas\Forms\Latte\Runtime::renderFormBegin($form = $_form = '
+			. ($name[0] === '$' ? 'is_object(%node.word) ? %node.word : ' : '')
+			. '$_control[%node.word], %node.array)'
+		);
 	}
 
 	public function macroLabel(MacroNode $node, PhpWriter $writer)
