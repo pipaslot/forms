@@ -1,0 +1,8 @@
+extensions:
+	- Pipas\Forms\DI\FormExtension
+
+di:
+	debugger: true
+
+services:
+	- Pipas\Forms\DI\TestingTranslator

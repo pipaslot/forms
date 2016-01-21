@@ -3,6 +3,7 @@ namespace Pipas\Forms\DI;
 
 use Nette\DI\CompilerExtension;
 use Nette\DI\ServiceDefinition;
+use Nette\Localization\ITranslator;
 use Nette\PhpGenerator\ClassType;
 use Pipas\Forms\Controls\TextOutput;
 use Pipas\Forms\FormFactory;
@@ -27,6 +28,18 @@ class FormExtension extends CompilerExtension
 		$latteFactory = $this->getLatteFactory();
 		$latteFactory->addSetup('?->onCompile[] = function($engine) { ' . FormMacros::class . '::install($engine->getCompiler()); }', array('@self'));
 	}
+
+	public function beforeCompile()
+	{
+		$container = $this->getContainerBuilder();
+		$factory = $container->getDefinition($this->prefix('formFactory'));
+		$translators = $container->findByType(ITranslator::class);
+
+		if (count($translators) > 0) {
+			$factory->addSetup('$service->setTranslator(?)', $translators);
+		}
+	}
+
 
 	public function afterCompile(ClassType $class)
 	{
