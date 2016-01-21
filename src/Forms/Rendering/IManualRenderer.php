@@ -16,5 +16,5 @@ interface IManualRenderer extends IFormRenderer
 	 * @param Form $form
 	 * @return string
 	 */
-	function renderFormBegin(Form $form);
+	function beforeRender(Form $form);
 }
