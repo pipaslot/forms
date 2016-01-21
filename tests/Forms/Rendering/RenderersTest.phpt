@@ -5,7 +5,7 @@ use Pipas\Forms\Rendering\Bootstrap3InlineRenderer;
 use Pipas\Forms\Rendering\Bootstrap3Renderer;
 use Pipas\Forms\Rendering\Bootstrap3StackRenderer;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 
 $form = new Form();

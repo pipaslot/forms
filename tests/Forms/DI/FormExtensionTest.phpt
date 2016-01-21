@@ -6,7 +6,7 @@ use Pipas\Forms\FormFactory;
 use Pipas\Forms\IFormFactory;
 use Tester\Assert;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 test(function () {
 	$configurator = new Configurator();
