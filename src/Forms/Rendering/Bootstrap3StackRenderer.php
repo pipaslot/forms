@@ -37,6 +37,7 @@ class Bootstrap3StackRenderer extends AManualRenderer
 	protected function prepareForm(Form $form)
 	{
 		$form->getElementPrototype()->class[] = 'form-horizontal';
+		$translator = $form->getTranslator();
 		foreach ($form->controls as $control) {
 			/** @var BaseControl $control */
 			if ($control instanceof HiddenField) {
@@ -46,7 +47,9 @@ class Bootstrap3StackRenderer extends AManualRenderer
 			} else {
 				if ($control->getLabel()) {
 					$control->setAttribute('placeholder', $control->caption);
-					if (empty($control->controlPrototype->attrs['title'])) $control->setAttribute('title', $control->caption);
+					if (empty($control->controlPrototype->attrs['title'])) {
+						$control->setAttribute('title', $translator ? $translator->translate($control->caption) : $control->caption);
+					}
 					$control->getLabelPrototype()->attrs["style"] = "display:none";
 				}
 			}
