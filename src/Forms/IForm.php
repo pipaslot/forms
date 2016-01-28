@@ -3,9 +3,9 @@
 namespace Pipas\Forms;
 
 use Nette;
-use Pipas\Forms\Controls\CountrySelectBox;
 use Pipas\Forms\Controls\DatePicker;
 use Pipas\Forms\Controls\DateTimePicker;
+use Pipas\Forms\Controls\GenericSelectBox;
 use Pipas\Forms\Controls\TextOutput;
 
 /**
@@ -23,14 +23,6 @@ interface IForm
 	function addContainer($name);
 
 	/**
-	 * Translated country selection
-	 * @param string $name
-	 * @param string|null $label
-	 * @return CountrySelectBox
-	 */
-	function addCountry($name, $label = NULL);
-
-	/**
 	 * Twitter bootstrap date picker
 	 * @param string $name
 	 * @param string|null $label
@@ -45,6 +37,22 @@ interface IForm
 	 * @return DateTimePicker
 	 */
 	function addDateTime($name, $label = NULL);
+
+	/**
+	 * Translated country selection
+	 * @param string $name
+	 * @param string|null $label
+	 * @return GenericSelectBox
+	 */
+	function addSelectCountry($name, $label = NULL);
+
+	/**
+	 * Translated language selection
+	 * @param string $name
+	 * @param string|null $label
+	 * @return GenericSelectBox
+	 */
+	function addSelectLocale($name, $label = NULL);
 
 	/**
 	 * Twitter bootstrap datetime picker

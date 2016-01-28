@@ -11,27 +11,15 @@ use Nette\Utils\Html;
 /**
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class CountrySelectBox extends SelectBox
+class GenericSelectBox extends SelectBox
 {
-	/**
-	 * List of supported country codes
-	 * @var array
-	 */
-	public static $countries = array();
-
-	public function __construct($label)
-	{
-		parent::__construct($label, self::$countries);
-	}
-
-
 	/**
 	 * Generates control's HTML element.
 	 * @return Html
 	 */
 	public function getControl()
 	{
-		$items = $this->prompt === FALSE ? array() : array('' => $this->translate($this->prompt));
+		$items = $this->getPrompt() === FALSE ? array() : array('' => $this->translate($this->getPrompt()));
 		$translated = array();
 		foreach ($this->items as $key => $value) {
 			$translated[$key] = $this->translate($value);
@@ -47,12 +35,14 @@ class CountrySelectBox extends SelectBox
 	}
 
 	/**
-	 * Adds addCountry() method to Nette\Forms\Container
+	 * Adds custom method of generic select box to Nette\Forms\Container
+	 * @param $method
+	 * @param array|null $items
 	 */
-	public static function register()
+	public static function register($method, $items = null)
 	{
-		Container::extensionMethod('addCountry', function (Container $container, $name, $label = NULL) {
-			return $container[$name] = new CountrySelectBox($label);
+		Container::extensionMethod($method, function (Container $container, $name, $label = NULL) use ($items) {
+			return $container[$name] = new GenericSelectBox($label, $items);
 		});
 	}
 }
