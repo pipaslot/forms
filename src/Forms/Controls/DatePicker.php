@@ -9,7 +9,7 @@ use Nette\Utils\Html;
 /**
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class DateTimePicker extends ABaseDateTimeControl
+class DatePicker extends ABaseDateTimeControl
 {
 	private static $firstRender = true;
 
@@ -58,12 +58,12 @@ class DateTimePicker extends ABaseDateTimeControl
 	/**
 	 * Registers this control
 	 *
-	 * @return DateTimePicker
+	 * @return DatePicker
 	 */
 	public static function register()
 	{
 		Container::extensionMethod('addDate', function ($container, $name, $label = NULL) {
-			$picker = $container[$name] = new DateTimePicker($label);
+			$picker = $container[$name] = new DatePicker($label);
 			return $picker;
 		});
 	}

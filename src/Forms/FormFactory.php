@@ -32,7 +32,7 @@ class FormFactory implements IFormFactory
 	/**
 	 * Create standard Nette form
 	 * @param bool|true $secured Enable Cross-Site Request Forgery Protection
-	 * @return Form
+	 * @return Form|IForm
 	 */
 	public function create($secured = true)
 	{
@@ -45,7 +45,7 @@ class FormFactory implements IFormFactory
 	/**
 	 * Create Form with Bootstrap styling
 	 * @param bool|true $secured
-	 * @return Form
+	 * @return Form|IForm
 	 */
 	public function createBootstrap($secured = true)
 	{
@@ -57,7 +57,7 @@ class FormFactory implements IFormFactory
 	/**
 	 * Create Form with inline Bootstrap styling
 	 * @param bool|true $secured
-	 * @return Form
+	 * @return Form|IForm
 	 */
 	public function createBootstrapInline($secured = true)
 	{
@@ -69,7 +69,7 @@ class FormFactory implements IFormFactory
 	/**
 	 * One column form where labels are placed to controls
 	 * @param bool|true $secured
-	 * @return Form
+	 * @return Form|IForm
 	 */
 	public function createBootstrapStacked($secured = true)
 	{
