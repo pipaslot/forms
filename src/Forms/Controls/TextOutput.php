@@ -30,6 +30,7 @@ class TextOutput extends BaseControl
 		if ($value !== NULL) {
 			$this->setValue($value);
 		}
+		$this->setOmitted();
 	}
 
 	/**
