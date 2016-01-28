@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Petr Štipek, p.stipek@email.cz">
+		<title>{ifset $title}{$title} | {/ifset}Forms</title>
+
+        <link rel="stylesheet" href="{$basePath}/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{$basePath}/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{$basePath}/bower_components/pipaslot-frontend/dist/pipas.min.css">
+		<script type="text/javascript" src="{$basePath}/bower_components/jquery/dist/jquery.min.js"></script>
+	    <script type="text/javascript" src="{$basePath}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="{$basePath}/bower_components/nette.ajax.js/nette.ajax.js"></script>
+	    <script type="text/javascript" src="{$basePath}/bower_components/pipaslot-frontend/dist/pipas.min.js"></script>
+	    <script type="text/javascript" src="{$basePath}/bower_components/nette-live-form-validation/live-form-validation.js"></script>
+	    <script type="text/javascript">
+		     pipas.basePath({$basePath});
+		     {ifset $locale}pipas.locale({$locale});{/ifset}
+	    </script>
+	</head>
+
+	<body style="padding-top:50px">
+	<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+             <a class="navbar-brand" href="#">Forms</a>
+             <ul class="nav navbar-nav">
+	             {*<<li class="dropdown">
+	               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nette <span class="caret"></span></a>
+	               ul class="dropdown-menu">
+	                  <li><a class="no-ajax" n:href="Nette:init">Init</a></li>
+	                  <li><a class="no-ajax" n:href="Nette:error">Error</a></li>
+	                  <li><a class="no-ajax" n:href="Nette:message">Message</a></li>
+	                  <li><a class="no-ajax" n:href="Nette:redirect">Redirect</a></li>
+	                  <li><a class="no-ajax" n:href="Nette:spinner">Spinner</a></li>
+	                  <li><a class="no-ajax" n:href="Nette:tableFixed">Table-fixed</a></li>
+		               <li><a class="no-ajax" n:href="Nette:unique">Unique</a></li>
+		               <li><a class="no-ajax" n:href="Nette:missingSnippet">Missing snippet</a></li>
+	               </ul>
+	             </li>*}
+
+	           </ul>
+
+        </div>
+    </nav>
+
+	<div class="container" n:snippet="content">
+		{block styles}{/block}
+		<div class="flashMessages">
+			<div n:foreach="$flashes as $flash" n:class="alert, 'alert-'.$flash->type">{$flash->message|noescape}</div>
+		</div>
+		{ifset $title}<h1>{$title}</h1>{/ifset}
+		{include content}
+	</div>
+    {block scripts}
+    {/block}
+    <script type="text/javascript" src="{$basePath}/bower_components/pipaslot-frontend/dist/nette-init.min.js"></script>
+</body>
+</html>
