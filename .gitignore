@@ -1,0 +1,10 @@
+.idea/
+composer.lock
+demo/bower_components
+demo/temp
+demo/log
+temp/
+vendor/
+tests/code-coverage.html
+tests/php.ini
+tests/tester.bat
