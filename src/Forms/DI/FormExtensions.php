@@ -7,6 +7,8 @@ use Nette\Localization\ITranslator;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Method;
 use Pipas\Forms\Controls\CountrySelectBox;
+use Pipas\Forms\Controls\DateTimePicker;
+use Pipas\Forms\Controls\DateTimeTimePicker;
 use Pipas\Forms\Controls\TextOutput;
 use Pipas\Forms\FormFactory;
 use Pipas\Forms\Latte\FormMacros;
@@ -58,6 +60,8 @@ class FormExtension extends CompilerExtension
 		$methods = $class->getMethods();
 		$initialize = $methods['initialize'];
 		$initialize->addBody(TextOutput::class . '::register();');
+		$initialize->addBody(DateTimePicker::class . '::register();');
+		$initialize->addBody(DateTimeTimePicker::class . '::register();');
 		$this->registerCountrySelectBox($initialize, $config['country']);
 
 	}

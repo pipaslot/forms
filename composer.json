@@ -23,12 +23,57 @@
     "latte/latte": "^2.3"
   },
   "require-dev": {
+    "pipaslot/modules": "~1.0",
+    "composer/composer": "~1.0@dev",
+    "nette/nette": "~2.3",
     "nette/tester": "~1.3",
     "tracy/tracy": "^2.3",
-    "nette/bootstrap": "^2.3",
-    "nette/robot-loader": "^2.3"
+    "nette/bootstrap": "~2.3",
+    "nette/robot-loader": "~2.3"
   },
   "autoload": {
-    "classmap": ["src/"]
+    "classmap": [
+      "src/"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+      "demo/"
+    ]
+  },
+  "extra": {
+    "directory": {
+      "create": [
+        "temp",
+        "demo/log",
+        "demo/temp"
+      ],
+      "empty": [
+        "temp",
+        "demo/temp"
+      ],
+      "secure": [
+      ]
+    },
+    "bower": {
+      "files": [
+      ],
+      "dependencies": {
+        "pipaslot-frontend": "~1.*",
+        "eonasdan-bootstrap-datetimepicker": "4.*"
+      }
+    },
+    "media": {
+    },
+    "grunt": [
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Pipas\\Modules\\Composer\\EventReceiver::run"
+    ],
+    "post-update-cmd": [
+      "Pipas\\Modules\\Composer\\EventReceiver::run"
+    ]
   }
 }
