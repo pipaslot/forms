@@ -6,6 +6,7 @@ use Nette;
 use Pipas\Forms\Controls\DatePicker;
 use Pipas\Forms\Controls\DateTimePicker;
 use Pipas\Forms\Controls\GenericSelectBox;
+use Pipas\Forms\Controls\TagControl;
 use Pipas\Forms\Controls\TextOutput;
 
 /**
@@ -53,6 +54,14 @@ interface IForm
 	 * @return GenericSelectBox
 	 */
 	function addSelectLocale($name, $label = NULL);
+
+	/**
+	 * Tag definitions
+	 * @param string $name
+	 * @param string|null $label
+	 * @return TagControl
+	 */
+	function addTags($name, $label = NULL);
 
 	/**
 	 * Twitter bootstrap datetime picker

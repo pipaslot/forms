@@ -3,6 +3,9 @@
 
 namespace App;
 
+use Nette\Application\UI\Form;
+use Tracy\Dumper;
+
 /**
  * @author Petr Štipek <p.stipek@email.cz>
  */
@@ -24,12 +27,15 @@ class FormPresenter extends BasePresenter
 			->setRequired();
 		$form->addSelectLocale("locale", "Locale");
 
+		$form->addTags("tags", "Tags")
+			->setDefaultValue(array("first", "second"));
+
 		$form->addSubmit("submit");
 		$form->onSubmit[] = function () {
 			$this->redrawControl();
 		};
-		$form->onSuccess[] = function () {
-			$this->redrawControl();
+		$form->onSuccess[] = function (Form $form) {
+			$this->flashMessage(Dumper::toHtml($form->values));
 		};
 		return $form;
 	}

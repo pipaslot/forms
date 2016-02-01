@@ -9,6 +9,7 @@ use Nette\PhpGenerator\Method;
 use Pipas\Forms\Controls\DatePicker;
 use Pipas\Forms\Controls\DateTimePicker;
 use Pipas\Forms\Controls\GenericSelectBox;
+use Pipas\Forms\Controls\TagControl;
 use Pipas\Forms\Controls\TextOutput;
 use Pipas\Forms\FormFactory;
 use Pipas\Forms\Latte\FormMacros;
@@ -66,6 +67,7 @@ class FormExtension extends CompilerExtension
 		$initialize->addBody(TextOutput::class . '::register();');
 		$initialize->addBody(DatePicker::class . '::register();');
 		$initialize->addBody(DateTimePicker::class . '::register();');
+		$initialize->addBody(TagControl::class . '::register();');
 		$this->registerSelectBox($initialize, $config['country'], "addSelectCountry", $this->countryCodes);
 		$this->registerSelectBox($initialize, $config['locale'], "addSelectLocale", $this->localeCodes);
 	}

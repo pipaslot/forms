@@ -1,0 +1,31 @@
+{
+  "name": "pipaslot-forms",
+  "homepage": "https://github.com/pipaslot/forms",
+  "authors": [
+    "Petr Štipek <p.stipek@email.cz>"
+  ],
+  "description": "Form front-end",
+  "main": "bower.json",
+  "moduleType": [],
+  "keywords": [
+    "pipaslot",
+    "forms"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "demo/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "4.*",
+    "jquery-tagit": "*",
+    "nette-live-form-validation": "~1.*",
+    "pipaslot-frontend": "~1.*",
+    "jquery-ui": "^1.11.4",
+    "bootstrap-tagsinput": "^0.7.1"
+  }
+}
