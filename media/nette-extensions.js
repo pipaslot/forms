@@ -5,14 +5,14 @@
     nette.ext("forms-tags", {
         load: function () {
             pipas.get("bootstrap-tagsinput", function () {
-                $("input[data-role=tagsinput]").tagsinput();
+                $("input[data-role=tagsinput]").tagsinput("input");
             });
         }
     });
     nette.ext("forms-datetime", {
         load: function () {
             var that = this;
-            pipas.get(["eonasdan-bootstrap-datetimepicker", "forms.styles"], function () {
+            pipas.get(["eonasdan-bootstrap-datetimepicker", "forms-styles"], function () {
                 $(".input-group.date input").each(function () {
                     var $elm = $(this);
                     var format = $elm.data("format");

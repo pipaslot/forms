@@ -14,15 +14,20 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "demo",
     "node_modules",
-    "bower_components",
-    "demo/bower_components/",
-    "test",
-    "tests"
+    "src",
+    "temp",
+    "tests",
+    "vendor",
+    "composer.json",
+    "composer.lock",
+    "Gruntfile.js",
+    "package.json",
+    "pre-commit.sh"
   ],
   "dependencies": {
     "eonasdan-bootstrap-datetimepicker": "4.*",
-    "jquery-tagit": "*",
     "nette-live-form-validation": "~1.*",
     "pipaslot-frontend": "~1.*",
     "jquery-ui": "^1.11.4",

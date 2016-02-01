@@ -7,7 +7,7 @@
     pipas.define("bootstrap-tagsinput", [
         "bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css",
         "bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"
-    ], "jquery-ui");
+    ]);
 
     pipas.define("moment-base", "bower_components/moment/min/moment.min.js");
     pipas.define("moment", "bower_components/moment/min/locales.min.js", "moment-base");
@@ -17,7 +17,7 @@
         "bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
     ], "moment");
 
-    pipas.define("forms.styles", [
-        "../media/forms.styles.css"
+    pipas.define("forms-styles", [
+        "../media/forms-styles.css"
     ]);
 })(pipas);

@@ -1,0 +1,17 @@
+{
+  "name": "pipaslot-forms",
+  "version": "1.0.0",
+  "description": "Netteformsextension",
+  "main": "Gruntfile.js",
+  "keywords": [
+    "nette",
+    "ajax"
+  ],
+  "author": "PetrŠtipek",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-uglify": "^0.11.0"
+  }
+}

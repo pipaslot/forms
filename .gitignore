@@ -1,4 +1,4 @@
-.idea/
+**/.*
 composer.lock
 demo/bower_components
 demo/temp
@@ -7,4 +7,5 @@ temp/
 vendor/
 tests/code-coverage.html
 tests/php.ini
+node_modules
 tests/tester.bat

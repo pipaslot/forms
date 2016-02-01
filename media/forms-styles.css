@@ -1,3 +1,7 @@
 .input-group.date .help-block.text-danger {
     display: table-row;
 }
+
+.bootstrap-tagsinput {
+    display: block !important;
+}
