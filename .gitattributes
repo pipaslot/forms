@@ -1,0 +1,8 @@
+/demo export-ignore
+/tests export-ignore
+.bowerrc export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+Gruntfile.js
+package.json
+pre-commit.sh
