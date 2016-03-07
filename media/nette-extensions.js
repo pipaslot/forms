@@ -2,6 +2,13 @@
  * Created by pipaslot on 31.01.2016.
  */
 (function ($, nette, pipas) {
+    nette.ext("forms-file-input", {
+        load: function () {
+            pipas.get("bootstrap-filestyle", function () {
+                $(":file").filestyle();
+            });
+        }
+    });
     nette.ext("forms-tags", {
         load: function () {
             pipas.get("bootstrap-tagsinput", function () {

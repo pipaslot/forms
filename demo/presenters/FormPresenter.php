@@ -29,6 +29,7 @@ class FormPresenter extends BasePresenter
 
 		$form->addTags("tags", "Tags")
 			->setDefaultValue(array("first", "second"));
+		$form->addUpload("upload", "File upload");
 
 		$form->addSubmit("submit");
 		$form->onSubmit[] = function () {

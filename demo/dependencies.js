@@ -20,4 +20,5 @@
     pipas.define("forms-styles", [
         "../media/forms-styles.css"
     ]);
+    pipas.define("bootstrap-filestyle", ["bower_components/bootstrap-filestyle/src/bootstrap-filestyle.min.js"])
 })(pipas);
