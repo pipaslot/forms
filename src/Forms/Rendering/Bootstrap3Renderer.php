@@ -24,7 +24,6 @@ class Bootstrap3Renderer extends AManualRenderer
 		$this->wrappers['label']['container'] = 'div class="col-sm-3 control-label"';
 		$this->wrappers['error']['container'] = 'div class="col-sm-9 col-sm-offset-3"';
 		$this->wrappers['error']['item'] = 'div class="alert alert-danger" role="alert"';
-		$this->wrappers['group']['container'] = 'fieldset class=form-group';
 		$this->wrappers['group']['label'] = 'legend class="col-sm-9 col-sm-offset-3"';
 	}
 
