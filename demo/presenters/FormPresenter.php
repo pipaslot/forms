@@ -12,9 +12,33 @@ use Tracy\Dumper;
 class FormPresenter extends BasePresenter
 {
 
-	protected function createComponentDemoForm()
+	protected function createComponentDefaultForm()
 	{
-		$form = $this->formFactory->createBootstrap();
+		return $this->applyControls($this->formFactory->create());
+	}
+
+	protected function createComponentBootstrapForm()
+	{
+		return $this->applyControls($this->formFactory->createBootstrap());
+	}
+
+	protected function createComponentBootstrapInlineForm()
+	{
+		return $this->applyControls($this->formFactory->createBootstrapInline());
+	}
+
+	protected function createComponentBootstrapStackedForm()
+	{
+		return $this->applyControls($this->formFactory->createBootstrapStacked());
+	}
+
+	/**
+	 * @param Form $form
+	 * @return Form
+	 */
+	private function applyControls(Form $form)
+	{
+		$form->addGroup();
 		$form->addTextOutput("fndjfdskf");
 		$form->addDate("date", "Date select")
 			->setDefaultValue(new \DateTime());
@@ -22,6 +46,7 @@ class FormPresenter extends BasePresenter
 			->setDefaultValue(new \DateTime());
 		$form->addDateTime("datetime2", "Required datetime")
 			->setRequired();
+		$form->addGroup("My extra group");
 		$form->addSelectCountry("country", "Country")
 			->setPrompt("Vyber")
 			->setRequired();

@@ -19,7 +19,7 @@ routing:
     debugger: true
     routes:
     	index.php: Dashboard:default
-    	'[<locale=cs>/]<presenter>/<action>[/<id>]': Form:default
+    	'[<locale=cs cs|en>/]<presenter>/<action>[/<id>]': Form:default
 
 services:
 	cacheStorage:		Nette\Caching\Storages\FileStorage(%tempDir%)
