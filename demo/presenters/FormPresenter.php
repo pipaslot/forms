@@ -55,6 +55,10 @@ class FormPresenter extends BasePresenter
 		$form->addTags("tags", "Tags")
 			->setDefaultValue(array("first", "second"));
 		$form->addUpload("upload", "File upload");
+		$form->addUpload("uploadAjax", "AJAX File upload")
+			->controlPrototype->addAttributes(array(
+				"data-upload-url" => $this->link("upload!")
+			));
 
 		$form->addSubmit("submit");
 		$form->onSubmit[] = function () {
@@ -64,5 +68,11 @@ class FormPresenter extends BasePresenter
 			$this->flashMessage(Dumper::toHtml($form->values));
 		};
 		return $form;
+	}
+
+	public function handleUpload()
+	{
+		echo 1;
+		$this->terminate();
 	}
 }

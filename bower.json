@@ -30,6 +30,7 @@
     "eonasdan-bootstrap-datetimepicker": "4.*",
     "nette-live-form-validation": "~1.*",
     "pipaslot-frontend": "~1.*",
+    "jquery": "~1.9",
     "jquery-ui": "^1.11.4",
     "bootstrap-tagsinput": "^0.7.1",
     "bootstrap-filestyle": "^1.2.1"

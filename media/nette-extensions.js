@@ -4,8 +4,25 @@
 (function ($, nette, pipas) {
     nette.ext("forms-file-input", {
         load: function () {
+            // AJAX upload
+            $("input:not(.input-file-style-initialized)[type='file'][data-upload-url]").each(function () {
+                console.log(this)
+                var $input = $(this);
+                $input.wrap('<div class="input-group"></div>');
+                $input.addClass('form-control input-file-style-initialized');
+                var $label = $('<span class="input-group-btn" tabindex="0"><label class="btn btn-default" for="' + $input.attr('id') + '"><span class="icon-span-filestyle glyphicon glyphicon-folder-open"></span> <span class="buttonText">Choose file</span></label></span>');
+                $input.before('<span class="form-control" disabled="true"></span>');
+                $input.after($label);
+                $label.on('click', function () {
+                    $input.trigger('click');
+                });
+                $input.css({
+                    clip: "rect(0px, 0px, 0px, 0px)",
+                    position: "absolute"
+                });
+            });
             pipas.get("bootstrap-filestyle", function () {
-                $(":file").filestyle();
+                $("input[type='file']:not([data-upload-url])").filestyle();
             });
         }
     });
