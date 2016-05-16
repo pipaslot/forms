@@ -4,46 +4,28 @@
 (function ($, nette, pipas) {
     nette.ext("forms-file-input", {
         load: function () {
-            // AJAX upload
-            $("input:not(.input-file-style-initialized)[type='file'][data-upload-url]").each(function () {
-                console.log(this)
+            $('form.bootstrap-theme input:not(.input-file-style-initialized)[type="file"]').each(function () {
                 var $input = $(this);
-                $input.wrap('<div class="input-group"></div>');
                 $input.addClass('form-control input-file-style-initialized');
-                var $label = $('<span class="input-group-btn" tabindex="0"><label class="btn btn-default" for="' + $input.attr('id') + '"><span class="icon-span-filestyle glyphicon glyphicon-folder-open"></span> <span class="buttonText">Choose file</span></label></span>');
-                $input.before('<span class="form-control" disabled="true"></span>');
-                $input.after($label);
-                $label.on('click', function () {
-                    $input.trigger('click');
-                });
-                $input.css({
-                    clip: "rect(0px, 0px, 0px, 0px)",
-                    position: "absolute"
-                });
-            });
-            pipas.get("bootstrap-filestyle", function () {
-                $("input[type='file']:not([data-upload-url])").filestyle();
+                $input.wrap('<label class="file">');
+                $input.after('<span class="file-custom"></span>');
             });
         }
     });
-    nette.ext("forms-tags", {
+    nette.ext('forms-tags', {
         load: function () {
-            pipas.get("bootstrap-tagsinput", function () {
-                $("input[data-role=tagsinput]").tagsinput("input");
-            });
+            $('input[data-role=tagsinput]').tagsinput('input');
         }
     });
-    nette.ext("forms-datetime", {
+    nette.ext('forms-datetime', {
         load: function () {
             var that = this;
-            pipas.get(["eonasdan-bootstrap-datetimepicker", "forms-styles"], function () {
-                $(".input-group.date input").each(function () {
-                    var $elm = $(this);
-                    var format = $elm.data("format");
-                    $elm.parent().datetimepicker({
-                        locale: pipas.locale(),
-                        format: that.PHPFormatToMoment(format)
-                    });
+            $(".input-group.date input").each(function () {
+                var $elm = $(this);
+                var format = $elm.data("format");
+                $elm.parent().datetimepicker({
+                    locale: pipas.locale(),
+                    format: that.PHPFormatToMoment(format)
                 });
             });
         }

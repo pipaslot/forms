@@ -8,7 +8,7 @@ use Nette\Forms\Form;
 /**
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class Bootstrap3Renderer extends AManualRenderer
+class Bootstrap4Renderer extends AManualRenderer
 {
 	/**
 	 * Bootstrap3Renderer constructor.
@@ -34,6 +34,6 @@ class Bootstrap3Renderer extends AManualRenderer
 	protected function prepareForm(Form $form)
 	{
 		$form->getElementPrototype()->class[] = 'form-horizontal';
-		BootstrapHelper::ApplyBootstrapToControls($form);
+		Bootstrap4Helper::ApplyBootstrapToControls($form);
 	}
 }

@@ -8,7 +8,7 @@ use Nette\Forms\Form;
 /**
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class Bootstrap3InlineRenderer extends AManualRenderer
+class Bootstrap4InlineRenderer extends AManualRenderer
 {
 	/**
 	 * Bootstrap3InlineRenderer constructor.
@@ -29,7 +29,7 @@ class Bootstrap3InlineRenderer extends AManualRenderer
 	protected function prepareForm(Form $form)
 	{
 		$form->getElementPrototype()->class[] = 'form-inline';
-		BootstrapHelper::ApplyBootstrapToControls($form);
+		Bootstrap4Helper::ApplyBootstrapToControls($form);
 	}
 
 }

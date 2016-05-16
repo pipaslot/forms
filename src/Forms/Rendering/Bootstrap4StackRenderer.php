@@ -12,7 +12,7 @@ use Nette\Forms\Form;
  * One column form where labels are placed to controls
  * @author Petr Štipek <p.stipek@email.cz>
  */
-class Bootstrap3StackRenderer extends AManualRenderer
+class Bootstrap4StackRenderer extends AManualRenderer
 {
 	/**
 	 * Bootstrap3StackedRenderer constructor.
@@ -54,6 +54,6 @@ class Bootstrap3StackRenderer extends AManualRenderer
 				}
 			}
 		}
-		BootstrapHelper::ApplyBootstrapToControls($form);
+		Bootstrap4Helper::ApplyBootstrapToControls($form);
 	}
 }

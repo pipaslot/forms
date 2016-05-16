@@ -5,9 +5,9 @@ namespace Pipas\Forms;
 
 use Nette\Application\UI\Form;
 use Nette\Localization\ITranslator;
-use Pipas\Forms\Rendering\Bootstrap3InlineRenderer;
-use Pipas\Forms\Rendering\Bootstrap3Renderer;
-use Pipas\Forms\Rendering\Bootstrap3StackRenderer;
+use Pipas\Forms\Rendering\Bootstrap4InlineRenderer;
+use Pipas\Forms\Rendering\Bootstrap4Renderer;
+use Pipas\Forms\Rendering\Bootstrap4StackRenderer;
 
 /**
  * @author Petr Štipek <p.stipek@email.cz>
@@ -28,6 +28,7 @@ class FormFactory implements IFormFactory
 		$this->translator = $translator;
 		return $this;
 	}
+	
 
 	/**
 	 * Create standard Nette form
@@ -50,7 +51,7 @@ class FormFactory implements IFormFactory
 	public function createBootstrap($secured = true)
 	{
 		$form = $this->create($secured);
-		$form->setRenderer(new Bootstrap3Renderer());
+		$form->setRenderer(new Bootstrap4Renderer());
 		return $form;
 	}
 
@@ -62,7 +63,7 @@ class FormFactory implements IFormFactory
 	public function createBootstrapInline($secured = true)
 	{
 		$form = $this->create($secured);
-		$form->setRenderer(new Bootstrap3InlineRenderer());
+		$form->setRenderer(new Bootstrap4InlineRenderer());
 		return $form;
 	}
 
@@ -74,7 +75,7 @@ class FormFactory implements IFormFactory
 	public function createBootstrapStacked($secured = true)
 	{
 		$form = $this->create($secured);
-		$form->setRenderer(new Bootstrap3StackRenderer());
+		$form->setRenderer(new Bootstrap4StackRenderer());
 		return $form;
 	}
 }

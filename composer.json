@@ -67,10 +67,10 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "Pipas\\Modules\\Composer\\EventReceiver::run"
+      "Pipas\\Modules\\Composer\\Extra::run"
     ],
     "post-update-cmd": [
-      "Pipas\\Modules\\Composer\\EventReceiver::run"
+      "Pipas\\Modules\\Composer\\Extra::run"
     ]
   }
 }

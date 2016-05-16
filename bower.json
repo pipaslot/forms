@@ -4,8 +4,11 @@
   "authors": [
     "Petr Štipek <p.stipek@email.cz>"
   ],
-  "description": "Form front-end",
-  "main": "bower.json",
+  "description": "Form and front-end",
+  "main": [
+    "media/forms-styles.css",
+    "media/nette-extensions.json"
+  ],
   "moduleType": [],
   "keywords": [
     "pipaslot",
@@ -29,10 +32,9 @@
   "dependencies": {
     "eonasdan-bootstrap-datetimepicker": "4.*",
     "nette-live-form-validation": "~1.*",
-    "pipaslot-frontend": "~1.*",
-    "jquery": "~1.9",
-    "jquery-ui": "^1.11.4",
+    "pipaslot-frontend": "~2.*",
     "bootstrap-tagsinput": "^0.7.1",
-    "bootstrap-filestyle": "^1.2.1"
+    "bootstrap-filestyle": "^1.2.1",
+    "jquery-ui": "^1.11.4"
   }
 }

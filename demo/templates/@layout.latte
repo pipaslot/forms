@@ -7,47 +7,45 @@
 		<meta name="author" content="Petr Štipek, p.stipek@email.cz">
 		<title>{ifset $title}{$title} | {/ifset}Forms</title>
 
-        <link rel="stylesheet" href="{$basePath}/bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{$basePath}/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{$basePath}/bower_components/pipaslot-frontend/dist/pipas.min.css">
-		<script type="text/javascript" src="{$basePath}/bower_components/jquery/jquery.min.js"></script>
-	    <script type="text/javascript" src="{$basePath}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="{$basePath}/bower_components/pipaslot-frontend/dist/pipas.min.js"></script>
+		<link rel="stylesheet" href="{$basePath}/bower_components/tether/dist/css/tether.min.css">
+		<link rel="stylesheet" href="{$basePath}/bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{$basePath}/bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{$basePath}/bower_components/pipaslot-frontend/dist/front-end.min.css">
+		<link rel="stylesheet" href="{$basePath}/../media/dist/forms.min.css">
+		<script type="text/javascript" src="{$basePath}/bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/tether/dist/js/tether.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	    <script type="text/javascript" src="{$basePath}/bower_components/nette.ajax.js/nette.ajax.js"></script>
 	    <script type="text/javascript" src="{$basePath}/bower_components/nette-live-form-validation/live-form-validation.js"></script>
-	    <script type="text/javascript" src="{$basePath}/../media/nette-extensions.js"></script>
-		<script type="text/javascript"
-		        src="{$basePath}/bower_components/pipaslot-frontend/dist/nette-extensions.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/pipaslot-frontend/dist/front-end.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/../media/dist/forms.min.js"></script>
+
+
+		<link rel="stylesheet" href="{$basePath}/bower_components/jquery-ui/themes/flick/jquery-ui.min.css">
+		<link rel="stylesheet" href="{$basePath}/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+		<link rel="stylesheet" href="{$basePath}/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
+		<script type="text/javascript" src="{$basePath}/bower_components/jquery-ui/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/moment/min/moment.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/moment/min/locales.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/bower_components/bootstrap-filestyle/src/bootstrap-filestyle.min.js"></script>
+
 	    <script type="text/javascript">
 		     pipas.basePath({$basePath});
 		     {ifset $locale}pipas.locale({$locale});{/ifset}
 	    </script>
-        <script type="text/javascript" src="{$basePath}/dependencies.js"></script>
 	</head>
 
 	<body style="padding-top:50px">
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-light bg-faded navbar-fixed-top">
         <div class="container">
              <a class="navbar-brand" href="#">Forms</a>
              <ul class="nav navbar-nav">
-	             <li><a class="no-ajax" n:href="default">Default</a></li>
-	             <li><a class="no-ajax" n:href="bootstrap">Bootstrap</a></li>
-	             <li><a class="no-ajax" n:href="bootstrapInline">Bootstrap inline</a></li>
-	             <li><a class="no-ajax" n:href="bootstrapStacked">Bootstrap stacked</a></li>
-	             {*<<li class="dropdown">
-	               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nette <span class="caret"></span></a>
-	               ul class="dropdown-menu">
-	                  <li><a class="no-ajax" n:href="Nette:init">Init</a></li>
-	                  <li><a class="no-ajax" n:href="Nette:error">Error</a></li>
-	                  <li><a class="no-ajax" n:href="Nette:message">Message</a></li>
-	                  <li><a class="no-ajax" n:href="Nette:redirect">Redirect</a></li>
-	                  <li><a class="no-ajax" n:href="Nette:spinner">Spinner</a></li>
-	                  <li><a class="no-ajax" n:href="Nette:tableFixed">Table-fixed</a></li>
-		               <li><a class="no-ajax" n:href="Nette:unique">Unique</a></li>
-		               <li><a class="no-ajax" n:href="Nette:missingSnippet">Missing snippet</a></li>
-	               </ul>
-	             </li>*}
-
+	             <li class="nav-item"><a class="nav-link no-ajax" n:href="default">Default</a></li>
+	             <li class="nav-item"><a class="nav-link no-ajax" n:href="bootstrap">Bootstrap</a></li>
+	             <li class="nav-item"><a class="nav-link no-ajax" n:href="bootstrapInline">Bootstrap inline</a></li>
+	             <li class="nav-item"><a class="nav-link no-ajax" n:href="bootstrapStacked">Bootstrap stacked</a></li>
 	           </ul>
 
         </div>
@@ -58,11 +56,10 @@
 		<div class="flashMessages">
 			<div n:foreach="$flashes as $flash" n:class="alert, 'alert-'.$flash->type">{$flash->message|noescape}</div>
 		</div>
-		{ifset $title}<h1>{$title}</h1>{/ifset}
+		{ifset $title}<h1 style="margin-top: 20px">{$title}</h1>{/ifset}
 		{include content}
 	</div>
     {block scripts}
     {/block}
-    <script type="text/javascript" src="{$basePath}/bower_components/pipaslot-frontend/dist/nette-init.min.js"></script>
 </body>
 </html>

@@ -5,3 +5,6 @@
 .bootstrap-tagsinput {
     display: block !important;
 }
+label.file{
+    display:block;
+}
