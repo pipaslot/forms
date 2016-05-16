@@ -1,9 +1,9 @@
 <?php
 
 use Nette\Application\UI\Form;
-use Pipas\Forms\Rendering\Bootstrap3InlineRenderer;
-use Pipas\Forms\Rendering\Bootstrap3Renderer;
-use Pipas\Forms\Rendering\Bootstrap3StackRenderer;
+use Pipas\Forms\Rendering\Bootstrap4InlineRenderer;
+use Pipas\Forms\Rendering\Bootstrap4Renderer;
+use Pipas\Forms\Rendering\Bootstrap4StackRenderer;
 
 require __DIR__ . '/../../bootstrap.php';
 
@@ -22,16 +22,16 @@ $form->addHidden("hidden");
 $form->addRadioList("dadion");
 
 test(function () use ($form) {
-	$renderer = new Bootstrap3InlineRenderer();
+	$renderer = new Bootstrap4InlineRenderer();
 	$renderer->render($form);
 });
 
 test(function () use ($form) {
-	$renderer = new Bootstrap3Renderer();
+	$renderer = new Bootstrap4Renderer();
 	$renderer->render($form);
 });
 
 test(function () use ($form) {
-	$renderer = new Bootstrap3StackRenderer();
+	$renderer = new Bootstrap4StackRenderer();
 	$renderer->render($form);
 });
