@@ -44,7 +44,7 @@ class TextOutput extends BaseControl
 		parent::getControl();
 		$control = Html::el("div", array("style" => "text-align:justify"));
 		$control->setHtml($this->translate((string)$this->getValue()));
-		$container->add($control);
+		$container->addHtml($control);
 
 		return $container;
 	}

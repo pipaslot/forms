@@ -20,7 +20,7 @@
     "nette/forms": "~2.3",
     "nette/utils": "~2.2",
     "nette/application": "~2.3",
-    "latte/latte": "^2.3"
+    "latte/latte": "^2.4"
   },
   "require-dev": {
     "pipaslot/modules": "~1.0",
