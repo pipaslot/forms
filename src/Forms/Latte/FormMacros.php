@@ -28,9 +28,10 @@ class FormMacros extends FormsLatte\FormMacros
 		}
 		$node->tokenizer->reset();
 		return $writer->write(
-			'echo Pipas\Forms\Latte\Runtime::renderFormBegin($form = $_form = '
+			"/* line $node->startLine */\n"
+			. 'echo Pipas\Forms\Latte\Runtime::renderFormBegin($form = $_form = $this->global->formsStack[] = '
 			. ($name[0] === '$' ? 'is_object(%node.word) ? %node.word : ' : '')
-			. '$_control[%node.word], %node.array)'
+			. '$this->global->uiControl[%node.word], %node.array);'
 		);
 	}
 

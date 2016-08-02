@@ -103,8 +103,8 @@ class ABaseDateTimeControl extends TextInput
 		$control->addAttributes(array("data-format" => $this->format));
 		$container = clone $this->container;
 		$container->class[] = 'input-group date';
-		$container->add($control);
-		$container->add('<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>');
+		$container->addHtml($control);
+		$container->addHtml('<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>');
 
 		return $container;
 	}
