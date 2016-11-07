@@ -4,6 +4,7 @@
 namespace App;
 
 use Nette\Application\UI\Form;
+use Pipas\Forms\IForm;
 use Tracy\Dumper;
 
 /**
@@ -33,7 +34,7 @@ class FormPresenter extends BasePresenter
 	}
 
 	/**
-	 * @param Form $form
+	 * @param Form|IForm $form
 	 * @return Form
 	 */
 	private function applyControls(Form $form)
@@ -60,7 +61,10 @@ class FormPresenter extends BasePresenter
 				"data-upload-url" => $this->link("upload!")
 			));
 
-		$form->addSubmit("submit");
+		$form->addSubmit("submit","Secondary")
+			->getControlPrototype()->class[] = 'btn-secondary';
+		$form->addSubmit("submit2","Primary")
+			->getControlPrototype()->class[] = 'btn-primary';
 		$form->onSubmit[] = function () {
 			$this->redrawControl();
 		};

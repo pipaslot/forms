@@ -12,7 +12,6 @@ use Pipas\Forms\Controls\TextOutput;
 /**
  * Interface used only for annotation suggestions
  * @author Petr Štipek <p.stipek@email.cz>
- * @internal
  */
 interface IForm
 {
