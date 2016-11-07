@@ -23,7 +23,7 @@ class Bootstrap4Helper
 				$currentClasses = $control->getControlPrototype()->getAttribute('class');
 
 				if (!self::hasBtnDefinition($currentClasses)) {
-					$control->getControlPrototype()->addClass(!$usedPrimary ? 'btn btn-primary' : 'btn btn-secondary');
+					$control->getControlPrototype()->addClass(!$usedPrimary ? 'btn-primary' : 'btn-secondary');
 					$usedPrimary = TRUE;
 				}
 				$control->getControlPrototype()->addClass('btn');
