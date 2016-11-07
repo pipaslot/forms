@@ -19,13 +19,32 @@ class BootstrapHelper
 		$usedPrimary = FALSE;
 		foreach ($form->getControls() as $control) {
 			if ($control instanceof Controls\Button) {
-				$control->getControlPrototype()->addClass(empty($usedPrimary) ? 'btn btn-primary' : 'btn btn-default');
-				$usedPrimary = TRUE;
+				$currentClasses = $control->getControlPrototype()->getAttribute('class');
+
+				if (!self::hasBtnDefinition($currentClasses)) {
+					$control->getControlPrototype()->addClass(!$usedPrimary ? 'btn-primary' : 'btn-default');
+					$usedPrimary = TRUE;
+				}
+				$control->getControlPrototype()->addClass('btn');
 			} elseif ($control instanceof Controls\TextBase || $control instanceof Controls\SelectBox || $control instanceof Controls\MultiSelectBox) {
 				$control->getControlPrototype()->addClass('form-control');
 			} elseif ($control instanceof Controls\Checkbox || $control instanceof Controls\CheckboxList || $control instanceof Controls\RadioList) {
 				$control->getSeparatorPrototype()->setName('div')->addClass($control->getControlPrototype()->type);
 			}
 		}
+	}
+
+	/**
+	 * @param string|array $currentClasses
+	 * @return bool
+	 */
+	private static function hasBtnDefinition($currentClasses){
+		$classes = is_array($currentClasses) ? $currentClasses : array($currentClasses);
+		foreach ($classes as $class){
+			if (strpos($class, 'btn-secondary') >=0 OR  strpos($class, 'btn-primary') >=0 ) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
